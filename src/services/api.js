@@ -29,15 +29,21 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '65175319ff5fdf769ef44bf4c6a21d27';
 
 export const getDataMovies = async (path, query = '', page = 1) => {
-  try {
-    const response = await fetch(
-      `${BASE_URL}${path}?api_key=${API_KEY}&query=${query}&page=${page}`
-    );
-    const data = await response.json();
+  const response = await fetch(
+    `${BASE_URL}${path}?api_key=${API_KEY}&query=${query}&page=${page}`
+  );
+  const data = await response.json();
 
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error.message);
+  return data;
+};
+
+export const getMovieDetails = async movieId => {
+  const response = await fetch(
+    `${BASE_URL}movie/${movieId}?api_key=${API_KEY}`
+  );
+  if (!response.ok) {
+    throw new Error('Some api error occured');
   }
+  const data = await response.json();
+  return data;
 };

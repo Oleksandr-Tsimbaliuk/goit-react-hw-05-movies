@@ -8,7 +8,7 @@ const MovieGallery = ({ movies, title }) => {
       <ul>
         {movies.map(movie => (
           // console.log(movie)
-          <MovieGalleryItem movie={movie} key={movie.id}></MovieGalleryItem>
+          <MovieGalleryItem movie={movie} key={movie.id} />
         ))}
       </ul>
     </>
