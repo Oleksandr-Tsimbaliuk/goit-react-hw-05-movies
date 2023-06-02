@@ -25,10 +25,10 @@ const App = () => {
 
 export default App;
 
-{
-  /* <Route path="/" element={<Layout />}>
+// {
+/* <Route path="/" element={<Layout />}>
   <Route index element={<HomePage />} />
   <Route path="details" element={<MovieDetails />} />
   <Route path="movies" element={<Movies />} />
 </Route> */
-}
+// }
