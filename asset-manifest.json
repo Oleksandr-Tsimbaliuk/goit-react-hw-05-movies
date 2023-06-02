@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.c04b42d5.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.e13b4fe6.js",
     "static/js/983.e6c27a92.chunk.js": "/goit-react-hw-05-movies/static/js/983.e6c27a92.chunk.js",
-    "static/js/884.fe4e0998.chunk.js": "/goit-react-hw-05-movies/static/js/884.fe4e0998.chunk.js",
+    "static/js/884.0218efbe.chunk.js": "/goit-react-hw-05-movies/static/js/884.0218efbe.chunk.js",
     "static/js/719.d7ce01ba.chunk.js": "/goit-react-hw-05-movies/static/js/719.d7ce01ba.chunk.js",
     "static/js/247.feedfbbc.chunk.js": "/goit-react-hw-05-movies/static/js/247.feedfbbc.chunk.js",
     "static/js/186.b7cb19a7.chunk.js": "/goit-react-hw-05-movies/static/js/186.b7cb19a7.chunk.js",
@@ -11,9 +11,9 @@
     "index.html": "/goit-react-hw-05-movies/index.html",
     "static/media/seach-icon.svg": "/goit-react-hw-05-movies/static/media/seach-icon.b7e2906d1deffaf89cbd2aa835ce6112.svg",
     "main.7acaea2f.css.map": "/goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.c04b42d5.js.map": "/goit-react-hw-05-movies/static/js/main.c04b42d5.js.map",
+    "main.e13b4fe6.js.map": "/goit-react-hw-05-movies/static/js/main.e13b4fe6.js.map",
     "983.e6c27a92.chunk.js.map": "/goit-react-hw-05-movies/static/js/983.e6c27a92.chunk.js.map",
-    "884.fe4e0998.chunk.js.map": "/goit-react-hw-05-movies/static/js/884.fe4e0998.chunk.js.map",
+    "884.0218efbe.chunk.js.map": "/goit-react-hw-05-movies/static/js/884.0218efbe.chunk.js.map",
     "719.d7ce01ba.chunk.js.map": "/goit-react-hw-05-movies/static/js/719.d7ce01ba.chunk.js.map",
     "247.feedfbbc.chunk.js.map": "/goit-react-hw-05-movies/static/js/247.feedfbbc.chunk.js.map",
     "186.b7cb19a7.chunk.js.map": "/goit-react-hw-05-movies/static/js/186.b7cb19a7.chunk.js.map",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.c04b42d5.js"
+    "static/js/main.e13b4fe6.js"
   ]
 }
