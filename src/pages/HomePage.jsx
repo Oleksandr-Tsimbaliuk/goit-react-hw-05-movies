@@ -8,7 +8,7 @@ function HomePage() {
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const { results } = await getDataMovies('trending/movie/day');
+        const { results } = await getDataMovies();
         console.log(results);
         setTradingMovies([...results]);
       } catch (error) {

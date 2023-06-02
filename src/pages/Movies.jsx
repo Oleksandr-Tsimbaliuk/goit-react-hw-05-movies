@@ -1,42 +1,58 @@
+import MovieGallery from 'components/MovieGallery/MovieGallery';
 import Searchbar from 'components/Seacrhbar/Searchbar';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { getMovieBySearch } from 'services/api';
 
 function Movies() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [moviesData, setMoviesData] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [Movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
+  const searchQuery = searchParams.get('query') ?? '';
 
-  const handleFormSubmit = searchQuery => {
-    setSearchQuery(searchQuery);
-    // setCurrentPage(1);
-    // setMovies([]);
+  const updateQueryString = event => {
+    setQuery(event.currentTarget.value.toLowerCase());
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (query.trim() === '') {
+      setSearchParams({});
+      alert('Please, enter search value');
+      return;
+    }
+    setSearchParams({ query });
   };
 
   useEffect(() => {
-    const fetchMovieBySearch = async searchQuery => {
+    const fetchMovieBySearch = async () => {
       try {
         const data = await getMovieBySearch(searchQuery);
         setMoviesData(data);
-        console.log(data);
       } catch (error) {}
     };
-    fetchMovieBySearch(searchQuery);
+    fetchMovieBySearch();
   }, [searchQuery]);
+
   return (
     <div>
-      <Searchbar onSubmit={handleFormSubmit}></Searchbar>
+      <Searchbar
+        updateQueryString={updateQueryString}
+        onSubmit={handleSubmit}
+        searchQuery={query}
+      ></Searchbar>
 
       {moviesData && (
-        <ul>
-          {moviesData.results.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`${id}`}>{title}</Link>
-            </li>
-          ))}
-        </ul>
+        // <ul>
+        //   {moviesData.results.map(({ id, title }) => (
+        //     <li key={id}>
+        //       <Link to={`${id}`} state={{ from: location }}>
+        //         {title}
+        //       </Link>
+        //     </li>
+        //   ))}
+        // </ul>
+        <MovieGallery movies={moviesData.results} />
       )}
     </div>
   );
