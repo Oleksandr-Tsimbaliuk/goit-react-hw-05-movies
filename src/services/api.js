@@ -69,3 +69,14 @@ export const getMovieReviews = async movieId => {
   const data = await response.json();
   return data;
 };
+
+export const getMovieBySearch = async query => {
+  const response = await fetch(
+    `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+  );
+  if (!response.ok) {
+    throw new Error('Some api error occured');
+  }
+  const data = await response.json();
+  return data;
+};

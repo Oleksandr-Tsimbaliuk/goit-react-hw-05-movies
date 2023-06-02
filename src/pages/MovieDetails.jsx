@@ -1,7 +1,14 @@
 // import Cast from 'components/Cast/Cast';
 // import Reviews from 'components/Reviews/Reviews';
-import React, { Suspense, lazy, useEffect, useState } from 'react';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
 
 const Cast = lazy(() => import('components/Cast/Cast'));
@@ -14,6 +21,10 @@ function MovieDetails() {
 
   const { movieId } = useParams();
 
+  // const navigate = useNavigate();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/movies');
+
   useEffect(() => {
     const fetchMovieData = async movieId => {
       try {
@@ -21,6 +32,8 @@ function MovieDetails() {
         const data = await getMovieDetails(movieId);
         console.log(data);
         setMovieDetails(data);
+        console.log(location);
+        console.log(backLink);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -30,6 +43,15 @@ function MovieDetails() {
 
     fetchMovieData(movieId);
   }, [movieId]);
+
+  // const handleGoBack = () => {
+  //   if (location.state) {
+  //     navigate(location.state.from);
+  //     return;
+  //   }
+  //   navigate('/');
+  // };
+
   return (
     <div>
       {error.length > 0 && <div>{error}</div>}
@@ -38,6 +60,8 @@ function MovieDetails() {
 
       {movieDetails !== null && (
         <div>
+          <Link to={backLink.current}>Go back</Link>
+          {/* <button onClick={() => handleGoBack}>Go back</button> */}
           <img
             src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
             alt={movieDetails.original_title}

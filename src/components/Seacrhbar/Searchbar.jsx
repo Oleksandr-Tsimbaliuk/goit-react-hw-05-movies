@@ -1,24 +1,36 @@
 import React, { useState } from 'react';
 import { ReactComponent as IconSeacrh } from '../../icons/seach-icon.svg';
 import { StyledSearhbar } from './Styled';
+import { useSearchParams } from 'react-router-dom';
 
 const Searchbar = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query') ?? '';
 
-  const handleQueryChange = event => {
-    setQuery(event.currentTarget.value.toLowerCase());
+  // const [query, setQuery] = useState('');
+
+  // const handleQueryChange = event => {
+  // setQuery(event.currentTarget.value.toLowerCase());
+  // };
+
+  const updateQueryString = event => {
+    if (event.target.value.toLowerCase() === '') {
+      return setSearchParams({});
+    }
+    setSearchParams({ query: event.currentTarget.value.toLowerCase() });
   };
 
   const handleSubmit = event => {
-    console.log(event);
     event.preventDefault();
-    if (query.trim() === '') {
+    // if (query.trim() === '') {
+    if (searchQuery === '') {
       alert('Please, enter search value');
       return;
     }
-
-    onSubmit(query);
-    setQuery('');
+    console.log(searchQuery);
+    onSubmit(searchQuery);
+    // onSubmit(query);
+    // setQuery('');
   };
 
   return (
@@ -29,8 +41,10 @@ const Searchbar = ({ onSubmit }) => {
         </button>
 
         <input
-          onChange={handleQueryChange}
-          value={query}
+          // onChange={handleQueryChange}
+          // value={query}
+          onChange={updateQueryString}
+          value={searchQuery}
           className="SearchForm-input"
           type="text"
           autoComplete="off"

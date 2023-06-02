@@ -34,8 +34,10 @@ function Reviews() {
         <ul>
           {reviewsData.results.map(review => (
             <li key={review.id}>
-              <p>Author: {review.author}</p>
-              <p>Character: {review.content}</p>
+              <b>Author:</b>
+              <p>{review.author}</p>
+              <b>Character:</b>
+              <p>{review.content}</p>
             </li>
           ))}
           {!reviewsData.length && <div>There are no reviews yet!</div>}

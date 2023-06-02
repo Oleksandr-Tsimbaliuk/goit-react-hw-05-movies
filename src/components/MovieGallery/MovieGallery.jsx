@@ -7,7 +7,6 @@ const MovieGallery = ({ movies, title }) => {
       <h1>{title}</h1>
       <ul>
         {movies.map(movie => (
-          // console.log(movie)
           <MovieGalleryItem movie={movie} key={movie.id} />
         ))}
       </ul>
