@@ -39,7 +39,12 @@ function MovieDetails() {
 
       {movieDetails !== null && (
         <div>
-          <Link to={backLink.current}>Go back</Link>
+          <Link
+            to={backLink.current}
+            style={{ display: 'block', marginBottom: '20px' }}
+          >
+            Go back
+          </Link>
           <img
             src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
             alt={movieDetails.original_title}
