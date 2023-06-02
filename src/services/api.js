@@ -47,3 +47,14 @@ export const getMovieDetails = async movieId => {
   const data = await response.json();
   return data;
 };
+
+export const getMovieCast = async movieId => {
+  const response = await fetch(
+    `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`
+  );
+  if (!response.ok) {
+    throw new Error('Some api error occured');
+  }
+  const data = await response.json();
+  return data;
+};
