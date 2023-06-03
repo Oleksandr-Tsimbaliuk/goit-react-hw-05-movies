@@ -51,7 +51,7 @@ function Movies() {
         //       </Link>
         //     </li>
         //   ))}
-        // </ul>
+        // </ul>   ЯКИЙ СПОСІБ КРАЩЕ?
         <MovieGallery movies={moviesData.results} />
       )}
     </div>
