@@ -55,13 +55,15 @@ function MovieDetails() {
           <h2>Vote Average:</h2>
           <p> {movieDetails.vote_average}</p>
           <h2>Genres:</h2>
-          {movieDetails.genres.length > 0
-            ? movieDetails.genres
-                .map(({ name, id }) => {
-                  return <span key={id}>{name}</span>;
-                })
-                .join(', ')
-            : 'There no genres'}
+          {movieDetails.genres.length > 0 ? (
+            <ul>
+              {movieDetails.genres.map(({ name, id }) => (
+                <li key={id}>{name}</li>
+              ))}
+            </ul>
+          ) : (
+            'There no genres'
+          )}
           <h2>Overview:</h2>
           <p>{movieDetails.overview}`</p>
         </div>
