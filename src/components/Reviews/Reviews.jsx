@@ -1,3 +1,4 @@
+import Loader from 'components/Loader/Loader';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/api';
@@ -28,7 +29,7 @@ function Reviews() {
   return (
     <div>
       {error.length > 0 && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
 
       {reviewsData !== null && (
         <ul>

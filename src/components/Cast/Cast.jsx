@@ -1,3 +1,4 @@
+import Loader from 'components/Loader/Loader';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'services/api';
@@ -30,7 +31,7 @@ function Cast() {
   return (
     <div>
       {error.length > 0 && <div>{error}</div>}
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
 
       {castData !== null && (
         <ul>

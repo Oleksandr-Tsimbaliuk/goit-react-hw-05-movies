@@ -1,3 +1,4 @@
+import Loader from 'components/Loader/Loader';
 import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
@@ -35,7 +36,7 @@ function MovieDetails() {
     <div>
       {error.length > 0 && <div>{error}</div>}
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
 
       {movieDetails !== null && (
         <div>
@@ -71,7 +72,7 @@ function MovieDetails() {
         <Link to="reviews">Reviews</Link>
       </div>
       <div>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
